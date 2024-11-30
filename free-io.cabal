@@ -1,0 +1,25 @@
+cabal-version:   3.12
+name:            free-io
+version:         0.1.0.0
+license:         NONE
+author:          Jaro Reinders
+maintainer:      jaro.reinders@gmail.com
+build-type:      Simple
+extra-doc-files: CHANGELOG.md
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    exposed-modules:  System.IO.Free
+    build-depends:    base ^>=4.18.2.1, bytestring, directory
+    hs-source-dirs:   src
+    default-language: GHC2021
+
+executable free-io-example
+  import: warnings
+  build-depends: base, free-io
+  main-is: Main.hs
+  hs-source-dirs: example
+  default-language: GHC2021
